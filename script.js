@@ -2,8 +2,8 @@ let numOne, numTwo, operator;
 
 function calculate(toCalc) {
     let prevNum,
-        num = 0;
-    let lastOperatorPosition = 0;
+        num = 0,
+        lastOperatorPosition = 0;
     for (let i = 0; i <= toCalc.length; i++) {
         if (
             toCalc[i] === "-" ||
@@ -13,7 +13,11 @@ function calculate(toCalc) {
             toCalc[i] === undefined
         ) {
             prevNum = toParse(lastOperatorPosition, i);
-            calc(parseInt(prevNum), parseInt(num), toCalc[lastOperatorPosition]);
+            calc(
+                parseInt(prevNum),
+                parseInt(num),
+                toCalc[lastOperatorPosition]
+            );
             num = prevNum;
             lastOperatorPosition = i;
         }
@@ -21,10 +25,10 @@ function calculate(toCalc) {
 
     function toParse(start, end) {
         let n = "";
-        for (let j = start; j < end; j++) {
+        for (let j = start + 1; j < end; j++) {
             n += toCalc[j];
         }
-        return parseInt(n);
+        return n;
     }
 
     function calc(prevNum, num, operator) {
