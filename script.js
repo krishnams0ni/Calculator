@@ -1,54 +1,34 @@
-let numOne, numTwo, operator;
-
 function calculate(toCalc) {
-    let prevNum,
-        num = 0,
-        lastOperatorPosition = 0;
-    for (let i = 0; i <= toCalc.length; i++) {
-        if (
-            toCalc[i] === "-" ||
-            toCalc[i] === "+" ||
-            toCalc[i] === "*" ||
-            toCalc[i] === "/" ||
-            toCalc[i] === undefined
-        ) {
-            prevNum = toParse(lastOperatorPosition, i);
-            calc(
-                parseInt(prevNum),
-                parseInt(num),
-                toCalc[lastOperatorPosition]
-            );
-            num = prevNum;
-            lastOperatorPosition = i;
-        }
+    let mul = toCalc.split("*")[0];
+    toCalc.split("*").forEach((m, index) => {
+        if (index !== 0) mul *= Number(divide(m));
+    });
+    return Number(mul);
+
+    function divide(toDiv) {
+        let div = toDiv.split("/")[0];
+        toDiv.split("/").forEach((d, index) => {
+            if (index !== 0) div /= add(d);
+        });
+        return Number(div);
     }
 
-    function toParse(start, end) {
-        let n = "";
-        for (let j = start + 1; j < end; j++) {
-            n += toCalc[j];
-        }
-        return n;
+    function add(toAdd) {
+        let add = 0;
+        toAdd.split("+").forEach((a) => {
+            add += subtract(a);
+        });
+        return add;
     }
 
-    function calc(prevNum, num, operator) {
-        let n;
-        switch (operator) {
-            case "+":
-                n = prevNum + num;
-                break;
-            case "-":
-                n = prevNum - num;
-                break;
-            case "*":
-                n = prevNum * num;
-                break;
-            case "/":
-                n = prevNum / num;
-                break;
-        }
-        const displayUpdate = document.querySelector("#displayOutput");
-        displayUpdate.textContent = n;
+    function subtract(toSub) {
+        let sub = toSub.split("-")[0];
+        toSub.split("-").forEach((s, index) => {
+            if (index !== 0) {
+                sub -= s;
+            }
+        });
+        return Number(sub);
     }
 }
 
@@ -57,7 +37,8 @@ displayValue.addEventListener("click", (e) => {
     const displayUpdate = document.querySelector("#displayText");
 
     if (e.target.textContent === "=") {
-        calculate(displayUpdate.textContent);
+        const result = document.querySelector("#displayOutput");
+        result.textContent = calculate(displayUpdate.textContent);
     } else {
         displayUpdate.textContent += e.target.textContent;
     }
