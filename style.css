@@ -15,15 +15,21 @@ body {
     padding: 0px 400px;
 }
 
+button {
+    padding: 10px 70px;
+}
+
 #rowOne,
 #rowTwo,
 #rowThree,
+#rowFour,
 #rowFourDivOne,
-#rowFourDiv,
-#rowFour {
+#rowFourDivTwo {
     display: flex;
     flex-direction: row;
     justify-content: stretch;
+    align-items: stretch;
+    width: 100%;
 }
 
 #rowFourDiv {
