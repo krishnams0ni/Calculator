@@ -1,0 +1,31 @@
+body {
+    color: #fff;
+    background-color: #11142e;
+}
+
+.header,
+.footer {
+    text-align: center;
+    height: 100px;
+}
+
+.calculate {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 400px;
+}
+
+#rowOne,
+#rowTwo,
+#rowThree,
+#rowFourDivOne,
+#rowFourDiv,
+#rowFour {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+}
+
+#rowFourDiv {
+    flex-direction: column;
+}
