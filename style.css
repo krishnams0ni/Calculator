@@ -1,21 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata&display=swap");
+
 body {
     color: #fff;
-    background-image: url(bg.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-color: rgb(129, 129, 129);
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    font-family: "Inconsolata", monospace;
+    max-width: fit-content;
+    border: 0.5vh solid rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 10px;
 }
 
 .calculate {
     display: flex;
     flex-direction: column;
-    width: fit-content;
-    margin: auto;
+    margin: 0px auto;
+    gap: 10px;
 }
 
 a {
-    text-decoration: none;
-    color: #4adeff;
+    text-decoration: underline;
+    color: inherit;
 }
 
 #rowOne,
@@ -25,41 +32,71 @@ a {
 #rowFourDivOne,
 #rowFourDivTwo {
     display: flex;
+    gap: 10px;
+}
+
+#rowFourDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 #zero {
     width: 100%;
 }
 
+#clear,
+#backspace {
+    background-color: rgb(255, 177, 177);
+}
+
 #equals {
-    height: 14vw;
+    height: auto;
+    background-color: rgb(176, 255, 176);
+}
+
+#division,
+#multiplication,
+#subtraction,
+#addition {
+    background-color: rgb(255, 255, 148);
+}
+
+#display,
+#footer {
+    color: black;
+    border: 0.5vh solid rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    align-self: center;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+#display {
+    margin-bottom: 10px;
+}
+
+#footer {
+    padding: 5px;
+    font-size: 1.1vw;
+    font-weight: 900;
+    background-color: #0000007b;
+    color: white;
+    margin-top: 10px;
 }
 
 #displayText,
 #displayOutput {
     font-size: 40px;
-    text-align: right;  
+    text-align: right;
     height: 50px;
-    background-color: #00000076;
-    padding: 0px 10px;
-    border: none;
-}
-
-#displayText {
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-}
-
-.footer {
-    text-align: center;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    background-color: #00000076;
 }
 
 input {
-    width: 7vw;
-    height: 7vw;
-    border-radius: 0%;
-    font-size: 3vw;
+    width: 6vw;
+    height: 6vw;
+    font-size: 2.5vw;
+    border: 0.5vh solid rgb(0, 0, 0);
+    border-radius: 10px;
 }

@@ -103,17 +103,17 @@ document.addEventListener("keydown", (e) => {
     if (e.key === "0") {
         zero.click();
     }
-    if (e.key === "+") {
+    if (e.key === "+" || e.key === "=") {
         addition.click();
     }
     if (e.key === "-") {
         subtraction.click();
     }
     if (e.key === "*") {
-        division.click();
+        multiplication.click();
     }
     if (e.key === "/") {
-        divide.click();
+        division.click();
     }
     if (e.key === "Enter") {
         equals.click();
