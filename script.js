@@ -54,3 +54,74 @@ displayValue.addEventListener("click", (e) => {
         displayUpdate.textContent += e.target.value;
     }
 });
+
+const one = document.querySelector("#one");
+const two = document.querySelector("#two");
+const three = document.querySelector("#three");
+const four = document.querySelector("#four");
+const five = document.querySelector("#five");
+const six = document.querySelector("#six");
+const seven = document.querySelector("#seven");
+const eight = document.querySelector("#eight");
+const nine = document.querySelector("#nine");
+const zero = document.querySelector("#zero");
+const add = document.querySelector("#add");
+const subtract = document.querySelector("#subtract");
+const multiply = document.querySelector("#multiply");
+const divide = document.querySelector("#divide");
+const equals = document.querySelector("#equals");
+const clear = document.querySelector("#clear");
+const backspace = document.querySelector("#backspace");
+document.addEventListener("keydown", (e) => {
+    if (e.key === "1") {
+        one.click();
+    }
+    if (e.key === "2") {
+        two.click();
+    }
+    if (e.key === "3") {
+        three.click();
+    }
+    if (e.key === "4") {
+        four.click();
+    }
+    if (e.key === "5") {
+        five.click();
+    }
+    if (e.key === "6") {
+        six.click();
+    }
+    if (e.key === "7") {
+        seven.click();
+    }
+    if (e.key === "8") {
+        eight.click();
+    }
+    if (e.key === "9") {
+        nine.click();
+    }
+    if (e.key === "0") {
+        zero.click();
+    }
+    if (e.key === "+") {
+        addition.click();
+    }
+    if (e.key === "-") {
+        subtraction.click();
+    }
+    if (e.key === "*") {
+        division.click();
+    }
+    if (e.key === "/") {
+        divide.click();
+    }
+    if (e.key === "Enter") {
+        equals.click();
+    }
+    if (e.key === "Backspace") {
+        backspace.click();
+    }
+    if (e.key === "c") {
+        clear.click();
+    }
+});
