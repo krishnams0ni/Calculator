@@ -1,16 +1,24 @@
 function calculate(toCalc) {
-    let mul = toCalc.split("*")[0];
+    let mul;
     toCalc.split("*").forEach((m, index) => {
-        if (index !== 0) mul *= Number(divide(m));
+        if (index === 0) {
+            mul = divide(m);
+        } else {
+            mul *= divide(m);
+        }
     });
-    return Number(mul);
+    return mul;
 
     function divide(toDiv) {
-        let div = toDiv.split("/")[0];
+        let div;
         toDiv.split("/").forEach((d, index) => {
-            if (index !== 0) div /= add(d);
+            if (index === 0) {
+                div = add(d);
+            } else {
+                div /= add(d);
+            }
         });
-        return Number(div);
+        return div;
     }
 
     function add(toAdd) {
@@ -18,17 +26,19 @@ function calculate(toCalc) {
         toAdd.split("+").forEach((a) => {
             add += subtract(a);
         });
-        return add;
+        return Number(add);
     }
 
     function subtract(toSub) {
-        let sub = toSub.split("-")[0];
-        toSub.split("-").forEach((s, index) => {
-            if (index !== 0) {
-                sub -= s;
+        let sub = 0;
+        toSub.split("-").forEach((a, index) => {
+            if (index === 0) {
+                sub = Number(a);
+            } else {
+                sub -= Number(a);
             }
         });
-        return Number(sub);
+        return sub;
     }
 }
 
