@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata&display=swap");
 
+html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 body {
     color: #fff;
     background-color: rgb(129, 129, 129);
@@ -91,6 +98,7 @@ a {
     font-size: 40px;
     text-align: right;
     height: 50px;
+    padding: 0px 10px;
 }
 
 input {

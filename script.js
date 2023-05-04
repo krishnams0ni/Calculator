@@ -44,12 +44,35 @@ displayValue.addEventListener("click", (e) => {
     const result = document.querySelector("#displayOutput");
 
     if (e.target.value === "=") {
-        result.textContent = calculate(displayUpdate.textContent);
+        let res = calculate(displayUpdate.textContent);
+        if (res % 1 === 0) {
+            result.textContent = res;
+        } else {
+            result.textContent = parseFloat(res.toFixed(5));
+        }
     } else if (e.target.value === "←") {
         displayUpdate.textContent = displayUpdate.textContent.slice(0, -1);
     } else if (e.target.value === "C") {
         displayUpdate.textContent = "";
         result.textContent = "";
+    } else if (
+        e.target.value === "+" ||
+        e.target.value === "-" ||
+        e.target.value === "*" ||
+        e.target.value === "/"
+    ) {
+        if (
+            displayUpdate.textContent[displayUpdate.textContent.length - 1] !==
+                "+" &&
+            displayUpdate.textContent[displayUpdate.textContent.length - 1] !==
+                "-" &&
+            displayUpdate.textContent[displayUpdate.textContent.length - 1] !==
+                "*" &&
+            displayUpdate.textContent[displayUpdate.textContent.length - 1] !==
+                "/"
+        ) {
+            displayUpdate.textContent += e.target.value;
+        }
     } else {
         displayUpdate.textContent += e.target.value;
     }
@@ -113,6 +136,7 @@ document.addEventListener("keydown", (e) => {
         multiplication.click();
     }
     if (e.key === "/") {
+        e.preventDefault();
         division.click();
     }
     if (e.key === "Enter") {
