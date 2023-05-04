@@ -41,11 +41,16 @@ function calculate(toCalc) {
 const displayValue = document.querySelector(".calculate");
 displayValue.addEventListener("click", (e) => {
     const displayUpdate = document.querySelector("#displayText");
+    const result = document.querySelector("#displayOutput");
 
-    if (e.target.textContent === "=") {
-        const result = document.querySelector("#displayOutput");
+    if (e.target.value === "=") {
         result.textContent = calculate(displayUpdate.textContent);
+    } else if (e.target.value === "←") {
+        displayUpdate.textContent = displayUpdate.textContent.slice(0, -1);
+    } else if (e.target.value === "C") {
+        displayUpdate.textContent = "";
+        result.textContent = "";
     } else {
-        displayUpdate.textContent += e.target.textContent;
+        displayUpdate.textContent += e.target.value;
     }
 });
