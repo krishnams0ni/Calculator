@@ -43,7 +43,9 @@ displayValue.addEventListener("click", (e) => {
     const displayUpdate = document.querySelector("#displayText");
     const result = document.querySelector("#displayOutput");
 
-    if (e.target.value === "=") {
+    if (!e.target.value) {
+        displayUpdate.textContent += "";
+    } else if (e.target.value === "=") {
         let res = calculate(displayUpdate.textContent);
         if (res % 1 === 0) {
             result.textContent = res;
@@ -63,13 +65,13 @@ displayValue.addEventListener("click", (e) => {
     ) {
         if (
             displayUpdate.textContent[displayUpdate.textContent.length - 1] !==
-                "+" &&
+            "+" &&
             displayUpdate.textContent[displayUpdate.textContent.length - 1] !==
-                "-" &&
+            "-" &&
             displayUpdate.textContent[displayUpdate.textContent.length - 1] !==
-                "*" &&
+            "*" &&
             displayUpdate.textContent[displayUpdate.textContent.length - 1] !==
-                "/"
+            "/"
         ) {
             displayUpdate.textContent += e.target.value;
         }
